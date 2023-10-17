@@ -18,6 +18,7 @@ private final EntityManager entityManagerFactory;
         EntityTransaction transaction = entityManagerFactory.getTransaction();
         transaction.begin();
 
+        entityManagerFactory.persist(event);
         transaction.commit();
         System.out.println("New event saved created successfully");
     }

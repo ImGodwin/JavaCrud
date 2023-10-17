@@ -5,11 +5,12 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
 
-    private static EntityManagerFactory entitiManagerFactory;
+    private static final EntityManagerFactory entityManagerFactory;
 
     static {
         try {
-            entitiManagerFactory = Persistence.createEntityManagerFactory("simpljpa");
+            entityManagerFactory = Persistence.createEntityManagerFactory("simpljpa");
+
         } catch(Throwable ex){
             System.err.println("Initial EntityManagerFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -17,6 +18,6 @@ public class JpaUtil {
     }
 
     public static EntityManagerFactory getEntitiManagerFactory(){
-        return entitiManagerFactory;
+        return entityManagerFactory;
     }
 }
