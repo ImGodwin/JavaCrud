@@ -15,16 +15,19 @@ public class Event {
     private LocalDate date;
     private  String description;
 
-    //private EventType eventtype;
+    @Enumerated(EnumType.STRING)
+    private EventType eventtype;
     private int maxNumOfParticipants;
-    //@Enumerated(EnumType.STRING);
 
 
-    public Event(String title, LocalDate date, String description /* EventType eventtype*/, int maxNumOfParticipants) {
+public Event(){
+
+}
+    public Event(String title, LocalDate date, String description, EventType eventtype, int maxNumOfParticipants) {
         this.title = title;
         this.date = LocalDate.now();
         this.description = description;
-        //this.eventtype = eventtype;
+        this.eventtype = eventtype;
         this.maxNumOfParticipants = maxNumOfParticipants;
     }
 
